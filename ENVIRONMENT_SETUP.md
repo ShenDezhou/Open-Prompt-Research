@@ -1,7 +1,7 @@
 # 基于MineCraftServer的智能交互系统搭建
 
 * MAC环境下，安装openjdk20。
-```python
+```shell
 brew install openjdk
 echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 ```
@@ -11,7 +11,7 @@ echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 
 * 启动MC-Server服务
 
-```python
+```shell
 java -Xms1200m -Xmx1300m -jar server.jar nogui --singleplayer brian
 ```
 >启动过程需要修改eula.txt中变量为true后，重启服务。
@@ -39,7 +39,7 @@ java -Xms1200m -Xmx1300m -jar server.jar nogui --singleplayer brian
 
 使用单机模式登录。
 
-```python
+```javascript
 import mineflayer from 'mineflayer'
 
 const bot = mineflayer.createBot({
@@ -72,7 +72,7 @@ bot.chat('I spawned')
 
 # 使用mineflayer登录
 
-```python
+```javascript
 import mineflayer from 'mineflayer';
 import { mineflayer as mineflayerViewer } from 'prismarine-viewer';
 
