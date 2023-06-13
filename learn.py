@@ -12,7 +12,6 @@ from env import VoyagerEnv
 action_agent=ActionAgent()
 critic_agent=CriticAgent()
 curriculum_agent = CurriculumAgent(
-    mode="manual",
     core_inventory_items=r".*_log|.*_planks|stick|crafting_table|furnace"
         r"|cobblestone|dirt|coal|.*_pickaxe|.*_sword|.*_axe"
 )
@@ -20,11 +19,12 @@ skill_manager = SkillManager()
 env=VoyagerEnv(mc_port=25565)
 # Agents END.
 recorder = U.EventRecorder()
+llm_recorder = U.EventRecorder()
 
 #CONSTANT
 env_wait_ticks=1
 resume = False
-max_iterations=160
+max_iterations=1
 action_agent_task_max_retries=4
 reset_env=True
 reset_placed_if_failed=False
@@ -70,6 +70,7 @@ def reset(task, context="", reset_env=True):
     )
     assert len(messages) == 2
     conversations = []
+    llm_recorder.record(messages, "llm")
     return messages
 
 def step():
@@ -81,6 +82,7 @@ def step():
     conversations.append(
         (messages[0].content, messages[1].content, ai_message.content)
     )
+    llm_recorder.record([messages[0].content, messages[1].content, ai_message.content], "llm-action")
     parsed_result = action_agent.process_ai_message(message=ai_message)
     success = False
     if isinstance(parsed_result, dict):
@@ -98,7 +100,7 @@ def step():
             chest_observation=action_agent.render_chest_observation(),
             max_retries=5,
         )
-
+        llm_recorder.record([ai_message.content, parsed_result, critique], "llm-critic")
         if reset_placed_if_failed and not success:
             # revert all the placing event in the last step
             blocks = []
@@ -113,6 +115,7 @@ def step():
                 f"await givePlacedItemBack(bot, {U.json_dumps(blocks)}, {U.json_dumps(positions)})",
                 programs=skill_manager.programs,
             )
+            llm_recorder.record(new_events, "llm")
             events[-1][1]["inventory"] = new_events[-1][1]["inventory"]
             events[-1][1]["voxels"] = new_events[-1][1]["voxels"]
         new_skills = skill_manager.retrieve_skills(
@@ -194,6 +197,7 @@ if __name__ == "__main__":
             chest_observation=action_agent.render_chest_observation(),
             max_retries=5,
         )
+        llm_recorder.record([task, context], "llm-curri")
         print(
             f"\033[35mStarting task {task} for at most {action_agent_task_max_retries} times\033[0m"
         )

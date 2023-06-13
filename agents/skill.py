@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 
 import utils as U
@@ -19,6 +20,7 @@ class SkillManager:
         request_timout=120,
         ckpt_dir="ckpt",
         resume=False,
+        llm_recorder: U.EventRecorder | None = None,
     ):
         self.llm = ChatOpenAI(
             model_name=model_name,
@@ -48,6 +50,7 @@ class SkillManager:
             f"Did you set resume=False when initializing the manager?\n"
             f"You may need to manually delete the vectordb directory for running from scratch."
         )
+        self.llm_recorder = llm_recorder
 
     @property
     def programs(self):
@@ -104,6 +107,7 @@ class SkillManager:
             ),
         ]
         skill_description = f"    // { self.llm(messages).content}"
+        self.llm_recorder([*messages, skill_description], "llm-codedes")
         return f"async function {program_name}(bot) {{\n{skill_description}\n}}"
 
     def retrieve_skills(self, query):
