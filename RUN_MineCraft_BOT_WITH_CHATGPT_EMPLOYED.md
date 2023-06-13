@@ -398,7 +398,7 @@ Critique: None
 
 ChatGPT-Completion为：
 ````javascript
-", "Plan:
+Plan:
 1) Use `exploreUntil(bot, direction, maxDistance, callback)` to find a tree.
 2) Use `mineBlock(bot, name, count)` to mine the log.
 3) Check the inventory to make sure you have the log.
