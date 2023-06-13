@@ -443,3 +443,9 @@ async function mineWoodLog(bot) {
 ```javascript
 ["Mine 1 wood log", "You can mine one of oak, birch, spruce, jungle, acacia, dark oak, or mangrove logs."]
 ```
+
+### Critic-LLM
+CriticAgent是判断任务是否完成，完成后将代码存入SkillManager中，主要功能也是基于LLM实现的。
+
+### Skill-Manager
+SkillAgent基于代码生成函数功能说明，存入VectorDB中，提供向量化查询功能，生成函数说明的功能基于LLM。
