@@ -32,6 +32,7 @@ class SkillManager:
         U.f_mkdir(f"{ckpt_dir}/skill/vectordb")
         # programs for env execution
         self.control_primitives = load_control_primitives()
+        print(f"\033[33mLoading Stored Skills: {self.control_primitives}\033[0m")
         if resume:
             print(f"\033[33mLoading Skill Manager from {ckpt_dir}/skill\033[0m")
             self.skills = U.load_json(f"{ckpt_dir}/skill/skills.json")
@@ -59,6 +60,7 @@ class SkillManager:
             programs += f"{entry['code']}\n\n"
         for primitives in self.control_primitives:
             programs += f"{primitives}\n\n"
+        self.llm_recorder.record(programs, "llm-skill")
         return programs
 
     def add_skill(self, program_name, program_code):

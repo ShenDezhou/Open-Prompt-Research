@@ -22,7 +22,7 @@ recorder = U.EventRecorder()
 llm_recorder = U.EventRecorder()
 
 #CONSTANT
-env_wait_ticks=1
+env_wait_ticks=20
 resume = False
 max_iterations=1
 action_agent_task_max_retries=4
@@ -54,7 +54,7 @@ def reset(task, context="", reset_env=True):
     # step to peek an observation
     events = env.step(
         "bot.chat(`/time set ${getNextTime()}`);\n"
-        + f"bot.chat('/difficulty {difficulty}');"
+        + f"bot.chat(`/difficulty {difficulty}`);"
     )
     skills = skill_manager.retrieve_skills(query=context)
     print(
@@ -70,7 +70,7 @@ def reset(task, context="", reset_env=True):
     )
     assert len(messages) == 2
     conversations = []
-    llm_recorder.record(messages, "llm")
+    llm_recorder.record([system_message.content, human_message.content], "llm-action")
     return messages
 
 def step():
@@ -115,7 +115,7 @@ def step():
                 f"await givePlacedItemBack(bot, {U.json_dumps(blocks)}, {U.json_dumps(positions)})",
                 programs=skill_manager.programs,
             )
-            llm_recorder.record(new_events, "llm")
+            llm_recorder.record(new_events, "env-events")
             events[-1][1]["inventory"] = new_events[-1][1]["inventory"]
             events[-1][1]["voxels"] = new_events[-1][1]["voxels"]
         new_skills = skill_manager.retrieve_skills(
