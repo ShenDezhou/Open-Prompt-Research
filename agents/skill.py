@@ -60,7 +60,6 @@ class SkillManager:
             programs += f"{entry['code']}\n\n"
         for primitives in self.control_primitives:
             programs += f"{primitives}\n\n"
-        self.llm_recorder.record(programs, "llm-skill")
         return programs
 
     def add_skill(self, program_name, program_code):

@@ -8,18 +8,37 @@ from agents import CurriculumAgent
 from agents import SkillManager
 from env import VoyagerEnv
 
-# Agents BEGIN.
-action_agent=ActionAgent()
-critic_agent=CriticAgent()
-curriculum_agent = CurriculumAgent(
-    core_inventory_items=r".*_log|.*_planks|stick|crafting_table|furnace"
-        r"|cobblestone|dirt|coal|.*_pickaxe|.*_sword|.*_axe"
-)
-skill_manager = SkillManager()
-env=VoyagerEnv(mc_port=25565)
-# Agents END.
+
+# parse model
+import getopt
+import sys
+
+openai_model = "gpt-3.5-turbo-0613"
+argv = sys.argv[1:]
+try:
+    options, args = getopt.getopt(argv, "m:", ["model ="])
+except:
+    print("Error Message ")
+
+for name, value in options:
+    if name in ['-m', '--model']:
+        openai_model = value
+
 recorder = U.EventRecorder()
 llm_recorder = U.EventRecorder()
+# Agents BEGIN.
+action_agent=ActionAgent(model_name=openai_model)
+critic_agent=CriticAgent(model_name=openai_model)
+curriculum_agent = CurriculumAgent(
+    model_name=openai_model,
+    core_inventory_items=r".*_log|.*_planks|stick|crafting_table|furnace"
+        r"|cobblestone|dirt|coal|.*_pickaxe|.*_sword|.*_axe",
+    llm_recorder=llm_recorder
+)
+skill_manager = SkillManager(model_name=openai_model, llm_recorder=llm_recorder)
+env=VoyagerEnv(mc_port=25565)
+# Agents END.
+
 
 #CONSTANT
 env_wait_ticks=20
@@ -37,7 +56,7 @@ last_events = []
 
 
 def reset(task, context="", reset_env=True):
-    global action_agent_rollout_num_iter, messages, conversations
+    global action_agent_rollout_num_iter, messages, conversations, llm_recorder
     action_agent_rollout_num_iter = 0
     task = task
     context = context
@@ -74,7 +93,7 @@ def reset(task, context="", reset_env=True):
     return messages
 
 def step():
-    global action_agent_rollout_num_iter, messages, conversations, last_events
+    global action_agent_rollout_num_iter, messages, conversations, last_events, llm_recorder, recorder, skill_manager
     if action_agent_rollout_num_iter < 0:
         raise ValueError("Agent must be reset before stepping")
     ai_message = action_agent.llm(messages)
