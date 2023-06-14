@@ -449,3 +449,96 @@ CriticAgent是判断任务是否完成，完成后将代码存入SkillManager中
 
 ### Skill-Manager
 SkillAgent基于代码生成函数功能说明，存入VectorDB中，提供向量化查询功能，生成函数说明的功能基于LLM。
+
+## 意义
+本项目的意义在于，对于一个LLM而言，可以自己写代码、读环境反馈、验证代码正确性、生成代码注释，形成了一个AGI初步闭环。对开放世界探索、终身学习任务是一个较好的示例。
+
+## 监控BOT运行
+
+Node_server(Mineflayer-powered)项目在创建BOT成功登录后会启动端口为1024的第一BOT视角，可以查看BOT行为。
+至此，基于GPT-3.5-Turbo-0613模型，BOT可以自动完成课程智能体布置的任务，基于LLM写出的脚本。三个项目组件：
+[Open-Prompt-Research]：OpenAI-LLM驱动的智能体，主体模块。
+Minecraft server：Minecraft游戏环境，世界模块。
+Node_server(Mineflayer-powered)：基于Node和Mineflayer项目的交互服务，运行模块。
+三个模块交互运作，目前已经成功命令BOT去砍树。
+
+第一步（没有错误，一次生成即可运行）ChatGPT生成的回复（包含代码）如下：
+````javascript
+Explain: The task is to mine 1 wood log, and there are nearby oak logs available.
+
+Plan:
+1) Check if the bot has a tool to mine the wood log. If not, collect a wooden pickaxe.
+2) Mine the wood log using the `mineBlock` function.
+3) Check the inventory to ensure that the wood log has been collected.
+
+Code:
+```javascript
+async function mineWoodLog(bot) {
+  const woodLog = bot.findBlock({
+    matching: mcData.blocksByName.oak_log.id,
+    maxDistance: 32,
+  });
+
+  if (!woodLog) {
+    bot.chat("Could not find any wood logs nearby.");
+    return;
+  }
+
+  const tool = bot.inventory.findInventoryItem((item) => {
+    return item.name.includes("pickaxe");
+  });
+
+  if (!tool) {
+    bot.chat("I need a pickaxe to mine the wood log.");
+    await collectPickaxe(bot);
+  }
+
+  await mineBlock(bot, "oak_log", 1);
+
+  const inventory = bot.inventory.items();
+  const woodLogCount = inventory.reduce((count, item) => {
+    if (item.name === "oak_log") {
+      return count + item.count;
+    }
+    return count;
+  }, 0);
+
+  if (woodLogCount < 1) {
+    bot.chat("Failed to collect the wood log.");
+  } else {
+    bot.chat("Successfully collected the wood log.");
+  }
+}
+
+async function collectPickaxe(bot) {
+  await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
+    const pickaxe = bot.findBlock({
+      matching: (block) => {
+        return block.name.includes("pickaxe");
+      },
+      maxDistance: 32,
+    });
+    return pickaxe;
+  });
+
+  const pickaxe = bot.findBlock({
+    matching: (block) => {
+      return block.name.includes("pickaxe");
+    },
+    maxDistance: 32,
+  });
+
+  if (!pickaxe) {
+    bot.chat("Could not find a pickaxe nearby.");
+    return;
+  }
+
+  await bot.pathfinder.goto(new GoalBlock(pickaxe.position.x, pickaxe.position.y, pickaxe.position.z));
+  await bot.dig(pickaxe);
+}
+
+mineWoodLog(bot);
+```
+````
+
+至此，整个项目建造完毕。
