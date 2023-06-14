@@ -23,7 +23,7 @@ except:
 for name, value in options:
     if name in ['-m', '--model']:
         openai_model = value
-
+print("USING:"+openai_model)
 recorder = U.EventRecorder()
 llm_recorder = U.EventRecorder()
 # Agents BEGIN.
