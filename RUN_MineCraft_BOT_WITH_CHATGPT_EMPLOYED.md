@@ -542,3 +542,10 @@ mineWoodLog(bot);
 ````
 
 至此，整个项目建造完毕。
+
+此次项目[运行日志](execution_log)
+
+## 启动命令
+
+MCServer启动后，在本项目下运行：
+`python learn.py -m gpt-3.5-turbo-0613`
