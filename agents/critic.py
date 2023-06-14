@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 from prompts import load_prompt
 from utils.json_utils import fix_and_parse_json
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
-
+import utils as U
 
 class CriticAgent:
     def __init__(
@@ -11,6 +13,7 @@ class CriticAgent:
         temperature=0,
         request_timout=120,
         mode="auto",
+        llm_recorder: U.EventRecorder | None = None,
     ):
         self.llm = ChatOpenAI(
             model_name=model_name,
@@ -19,6 +22,7 @@ class CriticAgent:
         )
         assert mode in ["auto", "manual"]
         self.mode = mode
+        self.llm_recorder = llm_recorder
 
     def render_system_message(self):
         system_message = SystemMessage(content=load_prompt("critic"))
@@ -98,7 +102,9 @@ class CriticAgent:
         if messages[1] is None:
             return False, ""
 
+        self.llm_recorder.record([messages[0].content, messages[1].content], "llm-critic")
         critic = self.llm(messages).content
+        self.llm_recorder.record([messages[0].content,messages[1].content, critic], "llm-critic")
         print(f"\033[31m****Critic Agent ai message****\n{critic}\033[0m")
         try:
             response = fix_and_parse_json(critic)

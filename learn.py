@@ -119,7 +119,6 @@ def step():
             chest_observation=action_agent.render_chest_observation(),
             max_retries=5,
         )
-        llm_recorder.record([ai_message.content, parsed_result, critique], "llm-critic")
         if reset_placed_if_failed and not success:
             # revert all the placing event in the last step
             blocks = []
