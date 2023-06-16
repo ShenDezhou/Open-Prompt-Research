@@ -1,4 +1,5 @@
 async function placeItem(bot, name, position) {
+    const mcData = mineData(bot.version);
     // return if name is not string
     if (typeof name !== "string") {
         throw new Error(`name for placeItem must be a string`);

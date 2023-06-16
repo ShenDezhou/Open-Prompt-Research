@@ -7,6 +7,7 @@ async function smeltItem(bot, itemName, fuelName, count = 1) {
     if (typeof count !== "number") {
         throw new Error("count for smeltItem must be a number");
     }
+    const mcData = mineData(bot.version);
     const item = mcData.itemsByName[itemName];
     const fuel = mcData.itemsByName[fuelName];
     if (!item) {

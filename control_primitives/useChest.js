@@ -7,6 +7,7 @@ async function getItemFromChest(bot, chestPosition, itemsToGet) {
     await moveToChest(bot, chestPosition);
     const chestBlock = bot.blockAt(chestPosition);
     const chest = await bot.openContainer(chestBlock);
+    const mcData = mineData(bot.version);
     for (const name in itemsToGet) {
         const itemByName = mcData.itemsByName[name];
         if (!itemByName) {

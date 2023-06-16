@@ -7,6 +7,7 @@ async function craftItem(bot, name, count = 1) {
     if (typeof count !== "number") {
         throw new Error("count for craftItem must be a number");
     }
+    const mcData = mineData(bot.version);
     const itemByName = mcData.itemsByName[name];
     if (!itemByName) {
         throw new Error(`No item named ${name}`);

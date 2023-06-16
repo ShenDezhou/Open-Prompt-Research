@@ -13,7 +13,7 @@ async function shoot(bot, weapon, target) {
         bot.chat(`${weapon} is not a valid weapon for shooting`);
         return;
     }
-
+    const mcData = mineData(bot.version);
     const weaponItem = mcData.itemsByName[weapon];
     if (!bot.inventory.findInventoryItem(weaponItem.id, null)) {
         bot.chat(`No ${weapon} in inventory for shooting`);

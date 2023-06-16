@@ -6,6 +6,7 @@ async function mineBlock(bot, name, count = 1) {
     if (typeof count !== "number") {
         throw new Error(`count for mineBlock must be a number`);
     }
+    const mcData = mineData(bot.version);
     const blockByName = mcData.blocksByName[name];
     if (!blockByName) {
         throw new Error(`No block named ${name}`);

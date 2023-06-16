@@ -1,4 +1,5 @@
 function failedCraftFeedback(bot, name, item, craftingTable) {
+    const mcData = mineData(bot.version);
     const recipes = bot.recipesAll(item.id, null, craftingTable);
     if (!recipes.length) {
         throw new Error(`No crafting table nearby`);
