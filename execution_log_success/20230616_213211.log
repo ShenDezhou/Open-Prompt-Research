@@ -1,0 +1,386 @@
+2023-06-16 21:32:11,346 - mineflayer - INFO - Stopping subprocess.
+2023-06-16 21:32:12,349 - mineflayer - INFO - Starting subprocess with commands: ['node', '/Users/tsinghuaboy/projects/Open-Node-Research/index.js', '3000']
+2023-06-16 21:32:15,358 - mineflayer - INFO - Server started on port 3000
+2023-06-16 21:32:15,359 - mineflayer - INFO - Subprocess is ready.
+2023-06-16 21:32:15,387 - mineflayer - INFO - {
+2023-06-16 21:32:15,387 - mineflayer - INFO - server: '127.0.0.1',
+2023-06-16 21:32:15,387 - mineflayer - INFO - port: 25565,
+2023-06-16 21:32:15,388 - mineflayer - INFO - reset: 'hard',
+2023-06-16 21:32:15,388 - mineflayer - INFO - inventory: {},
+2023-06-16 21:32:15,388 - mineflayer - INFO - equipment: [],
+2023-06-16 21:32:15,388 - mineflayer - INFO - spread: false,
+2023-06-16 21:32:15,388 - mineflayer - INFO - waitTicks: 20,
+2023-06-16 21:32:15,388 - mineflayer - INFO - position: null
+2023-06-16 21:32:15,388 - mineflayer - INFO - }
+2023-06-16 21:32:19,329 - mineflayer - INFO - Prismarine viewer web server running on *:1024
+2023-06-16 21:32:21,420 - mineflayer - INFO - { code: '', programs: '' }
+2023-06-16 21:32:33,409 - mineflayer - INFO - Stopping subprocess.
+2023-06-16 21:32:34,431 - mineflayer - INFO - Starting subprocess with commands: ['node', '/Users/tsinghuaboy/projects/Open-Node-Research/index.js', '3000']
+2023-06-16 21:32:37,441 - mineflayer - INFO - Server started on port 3000
+2023-06-16 21:32:37,441 - mineflayer - INFO - Subprocess is ready.
+2023-06-16 21:32:37,464 - mineflayer - INFO - {
+2023-06-16 21:32:37,464 - mineflayer - INFO - server: '127.0.0.1',
+2023-06-16 21:32:37,464 - mineflayer - INFO - port: 25565,
+2023-06-16 21:32:37,464 - mineflayer - INFO - reset: 'soft',
+2023-06-16 21:32:37,464 - mineflayer - INFO - inventory: {},
+2023-06-16 21:32:37,464 - mineflayer - INFO - equipment: [],
+2023-06-16 21:32:37,464 - mineflayer - INFO - spread: false,
+2023-06-16 21:32:37,464 - mineflayer - INFO - waitTicks: 20,
+2023-06-16 21:32:37,464 - mineflayer - INFO - position: null
+2023-06-16 21:32:37,465 - mineflayer - INFO - }
+2023-06-16 21:32:40,258 - mineflayer - INFO - Prismarine viewer web server running on *:1024
+2023-06-16 21:32:42,269 - mineflayer - INFO - {
+2023-06-16 21:32:42,269 - mineflayer - INFO - code: 'bot.chat(`/time set ${getNextTime()}`);\nbot.chat(`/difficulty peaceful`);',
+2023-06-16 21:32:42,269 - mineflayer - INFO - programs: ''
+2023-06-16 21:32:42,269 - mineflayer - INFO - }
+2023-06-16 21:32:58,539 - mineflayer - INFO - {
+2023-06-16 21:32:58,539 - mineflayer - INFO - code: 'async function mineWoodLog(bot) {\n' +
+2023-06-16 21:32:58,539 - mineflayer - INFO - "  const mcData = require('minecraft-data')(bot.version);\n" +
+2023-06-16 21:32:58,539 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,539 - mineflayer - INFO - '  // Check if the bot has any wood logs in its inventory\n' +
+2023-06-16 21:32:58,539 - mineflayer - INFO - "  const woodLog = bot.inventory.items().find(item => mcData.blocksByName[item.name]?.name.endsWith('_log'));\n" +
+2023-06-16 21:32:58,539 - mineflayer - INFO - '  if (woodLog) {\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '    bot.chat(`I already have a wood log in my inventory.`);\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '    return;\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '  }\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '  // Explore until a tree is found\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '  const tree = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '    const log = bot.findBlock({\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - "      matching: block => mcData.blocksByName[block.name]?.name.endsWith('_log'),\n" +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '      maxDistance: 32\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '    });\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '    return log;\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '  });\n' +
+2023-06-16 21:32:58,540 - mineflayer - INFO - '  if (!tree) {\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - "    bot.chat(`I couldn't find any trees nearby.`);\n" +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '    return;\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '  }\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '  // Mine one wood log\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '  await mineBlock(bot, mcData.blocksByName[tree.name].name, 1);\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '  bot.chat(`I have mined one wood log.`);\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - 'await mineWoodLog(bot);',
+2023-06-16 21:32:58,541 - mineflayer - INFO - programs: 'async function mineBlock(bot, name, count = 1) {\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '    // return if name is not string\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '    if (typeof name !== "string") {\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '        throw new Error(`name for mineBlock must be a string`);\n' +
+2023-06-16 21:32:58,541 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    if (typeof count !== "number") {\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        throw new Error(`count for mineBlock must be a number`);\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    const mcData = mineData(bot.version);\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    const blockByName = mcData.blocksByName[name];\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    if (!blockByName) {\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        throw new Error(`No block named ${name}`);\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    const blocks = bot.findBlocks({\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        matching: [blockByName.id],\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        maxDistance: 32,\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        count: 1024,\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    });\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '    if (blocks.length === 0) {\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        bot.chat(`No ${name} nearby, please explore first`);\n' +
+2023-06-16 21:32:58,542 - mineflayer - INFO - '        _mineBlockFailCount++;\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        if (_mineBlockFailCount > 10) {\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '            throw new Error(\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '                "mineBlock failed too many times, make sure you explore before calling mineBlock"\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '            );\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        }\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    const targets = [];\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    for (let i = 0; i < blocks.length; i++) {\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        targets.push(bot.blockAt(blocks[i]));\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    await bot.collectBlock.collect(targets, {\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        ignoreNoPath: true,\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        count: count,\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    });\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    bot.save(`${name}_mined`);\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '// shoot 1 pig with a bow: shoot(bot, "bow", "pig");\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - 'async function shoot(bot, weapon, target) {\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '    const validWeapons = [\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        "bow",\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        "crossbow",\n' +
+2023-06-16 21:32:58,543 - mineflayer - INFO - '        "snowball",\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        "ender_pearl",\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        "egg",\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        "splash_potion",\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        "trident",\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    ];\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    if (!validWeapons.includes(weapon)) {\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        bot.chat(`${weapon} is not a valid weapon for shooting`);\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    const mcData = mineData(bot.version);\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    const weaponItem = mcData.itemsByName[weapon];\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    if (!bot.inventory.findInventoryItem(weaponItem.id, null)) {\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        bot.chat(`No ${weapon} in inventory for shooting`);\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    const targetEntity = bot.nearestEntity(\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '        (entity) =>\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '            entity.name === target\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    );\n' +
+2023-06-16 21:32:58,544 - mineflayer - INFO - '    if (!targetEntity) {\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        bot.chat(`No ${target} nearby`);\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    bot.hawkEye.autoAttack(targetEntity, "bow");\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - "    bot.on('auto_shot_stopped', (target) => {\n" +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    })\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - 'async function killMob(bot, mobName, timeout = 300) {\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    // return if mobName is not string\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    if (typeof mobName !== "string") {\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        throw new Error(`mobName for killMob must be a string`);\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    // return if timeout is not number\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    if (typeof timeout !== "number") {\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        throw new Error(`timeout for killMob must be a number`);\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '    const weaponsForShooting = [\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "bow",\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "crossbow",\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "snowball",\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "ender_pearl",\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "egg",\n' +
+2023-06-16 21:32:58,545 - mineflayer - INFO - '        "splash_potion",\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        "trident",\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    ];\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    const mainHandItem = bot.inventory.slots[bot.getEquipmentDestSlot("hand")];\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    const entity = bot.nearestEntity(\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        (entity) =>\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '            entity.name === mobName &&\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '            // kill mob distance should be slightly bigger than explore distance\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '            entity.position.distanceTo(bot.entity.position) < 48\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    );\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    if (!entity) {\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        bot.chat(`No ${mobName} nearby, please explore first`);\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        _killMobFailCount++;\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        if (_killMobFailCount > 10) {\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '            throw new Error(\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '                `killMob failed too many times, make sure you explore before calling killMob`\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '            );\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        }\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    let droppedItem;\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '    if (mainHandItem && weaponsForShooting.includes(mainHandItem.name)) {\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        bot.hawkEye.autoAttack(entity, mainHandItem.name);\n' +
+2023-06-16 21:32:58,546 - mineflayer - INFO - '        droppedItem = await waitForMobShot(bot, entity, timeout);\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    } else {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        await bot.pvp.attack(entity);\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        droppedItem = await waitForMobRemoved(bot, entity, timeout);\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    if (droppedItem) {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        await bot.collectBlock.collect(droppedItem, { ignoreNoPath: true });\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    bot.save(`${mobName}_killed`);\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '// Explore downward for 60 seconds: exploreUntil(bot, new Vec3(0, -1, 0), 60);\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - 'async function exploreUntil(\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    bot,\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    direction,\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    maxTime = 60,\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    callback = () => {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        return false;\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - ') {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    if (typeof maxTime !== "number") {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        throw new Error("maxTime must be a number");\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    if (typeof callback !== "function") {\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '        throw new Error("callback must be a function");\n' +
+2023-06-16 21:32:58,547 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    const test = callback();\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    if (test) {\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        bot.chat("Explore success.");\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        return Promise.resolve(test);\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    if (direction.x === 0 && direction.y === 0 && direction.z === 0) {\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        throw new Error("direction cannot be 0, 0, 0");\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    if (\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        !(\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '            (direction.x === 0 || direction.x === 1 || direction.x === -1) &&\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '            (direction.y === 0 || direction.y === 1 || direction.y === -1) &&\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '            (direction.z === 0 || direction.z === 1 || direction.z === -1)\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        )\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    ) {\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        throw new Error(\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '            "direction must be a Vec3 only with value of -1, 0 or 1"\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        );\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    maxTime = Math.min(maxTime, 1200);\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '    return new Promise((resolve, reject) => {\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        const dx = direction.x;\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        const dy = direction.y;\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        const dz = direction.z;\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,548 - mineflayer - INFO - '        let explorationInterval;\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '        let maxTimeTimeout;\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '        const cleanUp = () => {\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            clearInterval(explorationInterval);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            clearTimeout(maxTimeTimeout);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            bot.pathfinder.setGoal(null);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '        };\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '        const explore = () => {\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            const x =\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                bot.entity.position.x +\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                Math.floor(Math.random() * 20 + 10) * dx;\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            const y =\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                bot.entity.position.y +\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                Math.floor(Math.random() * 20 + 10) * dy;\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            const z =\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                bot.entity.position.z +\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                Math.floor(Math.random() * 20 + 10) * dz;\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            let goal = new GoalNear(x, y, z);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            if (dy === 0) {\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '                goal = new GoalNearXZ(x, z);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            }\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '            bot.pathfinder.setGoal(goal);\n' +
+2023-06-16 21:32:58,549 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            try {\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                const result = callback();\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                if (result) {\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                    cleanUp();\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                    bot.chat("Explore success.");\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                    resolve(result);\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                }\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            } catch (err) {\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                cleanUp();\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '                reject(err);\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            }\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '        };\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '        explorationInterval = setInterval(explore, 2000);\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '        maxTimeTimeout = setTimeout(() => {\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            cleanUp();\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            bot.chat("Max exploration time reached");\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '            resolve(null);\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '        }, maxTime * 1000);\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '    });\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,550 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - 'async function givePlacedItemBack(bot, name, position) {\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    await bot.chat("/gamerule doTileDrops false");\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    // iterate name and position\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    const history = [];\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    for (let i = 0; i < name.length; i++) {\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '        await givePlacedItemBackSingle(bot, name[i], position[i]);\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    await bot.chat("/gamerule doTileDrops true");\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '    async function givePlacedItemBackSingle(bot, name, position) {\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '        bot.chat(`/give bot ${name} 1`);\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '        const x = Math.floor(position.x);\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '        const y = Math.floor(position.y);\n' +
+2023-06-16 21:32:58,551 - mineflayer - INFO - '        const z = Math.floor(position.z);\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '        // loop through 125 blocks around the block\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '        const size = 3;\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '        for (let dx = -size; dx <= size; dx++) {\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '            for (let dy = -size; dy <= size; dy++) {\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                for (let dz = -size; dz <= size; dz++) {\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                    const block = bot.blockAt(new Vec3(x + dx, y + dy, z + dz));\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                    if (\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                        block?.name === name &&\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                        !history.includes(block.position)\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                    ) {\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                        await bot.chat(\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                            `/setblock ${x + dx} ${y + dy} ${\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                                z + dz\n' +
+2023-06-16 21:32:58,552 - mineflayer - INFO - '                            } air destroy`\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                        );\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                        history.push(block.position);\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                        await bot.waitForTicks(20);\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                        return;\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                    }\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '                }\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '            }\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '        }\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '}\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - 'async function placeItem(bot, name, position) {\n' +
+2023-06-16 21:32:58,553 - mineflayer - INFO - '    const mcData = mineData(bot.version);\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    // return if name is not string\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    if (typeof name !== "string") {\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '        throw new Error(`name for placeItem must be a string`);\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    // return if position is not Vec3\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    if (!(position instanceof Vec3)) {\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '        throw new Error(`position for placeItem must be a Vec3`);\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    const itemByName = mcData.itemsByName[name];\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    if (!itemByName) {\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '        throw new Error(`No item named ${name}`);\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,554 - mineflayer - INFO - '    const item = bot.inventory.findInventoryItem(itemByName.id);\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    if (!item) {\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        bot.chat(`No ${name} in inventory`);\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    const item_count = item.count;\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    // find a reference block\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    const faceVectors = [\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(0, 1, 0),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(0, -1, 0),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(1, 0, 0),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(-1, 0, 0),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(0, 0, 1),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '        new Vec3(0, 0, -1),\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    ];\n' +
+2023-06-16 21:32:58,555 - mineflayer - INFO - '    let referenceBlock = null;\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '    let faceVector = null;\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '    for (const vector of faceVectors) {\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '        const block = bot.blockAt(position.minus(vector));\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '        if (block?.name !== "air") {\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '            referenceBlock = block;\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '            faceVector = vector;\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '            bot.chat(`Placing ${name} on ${block.name} at ${block.position}`);\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '            break;\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '        }\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '    if (!referenceBlock) {\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '        bot.chat(\n' +
+2023-06-16 21:32:58,556 - mineflayer - INFO - '            `No block to place ${name} on. You cannot place a floating block.`\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        );\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        _placeItemFailCount++;\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        if (_placeItemFailCount > 10) {\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '            throw new Error(\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '                `placeItem failed too many times. You cannot place a floating block.`\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '            );\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        }\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        return;\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '    }\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '    // You must use try catch to placeBlock\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '    try {\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        // You must first go to the block position you want to place\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        await bot.pathfinder.goto(new GoalPlaceBlock(position, bot.world, {}));\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        // You must equip the item right before calling placeBlock\n' +
+2023-06-16 21:32:58,557 - mineflayer - INFO - '        await bot.equip(item, "hand");\n' +
+2023-06-16 21:32:58,558 - mineflayer - INFO - '        await bot.placeBlock(referenceBlock, faceVector);\n' +
+2023-06-16 21:32:58,558 - mineflayer - INFO - '        bot.chat(`Placed ${name}`);\n' +
+2023-06-16 21:32:58,558 - mineflayer - INFO - '        bot.save(`${name}_placed`);\n' +
+2023-06-16 21:32:58,558 - mineflayer - INFO - '    }'... 14112 more characters
+2023-06-16 21:32:58,558 - mineflayer - INFO - }
