@@ -108,7 +108,7 @@ class SkillManager:
             ),
         ]
         skill_description = f"    // { self.llm(messages).content}"
-        self.llm_recorder([*messages, skill_description], "llm-codedes")
+        self.llm_recorder.record([messages[0].content, messages[1].content, skill_description], "llm-codedes")
         return f"async function {program_name}(bot) {{\n{skill_description}\n}}"
 
     def retrieve_skills(self, query):
