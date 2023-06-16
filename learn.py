@@ -28,7 +28,7 @@ recorder = U.EventRecorder()
 llm_recorder = U.EventRecorder()
 # Agents BEGIN.
 action_agent=ActionAgent(model_name=openai_model)
-critic_agent=CriticAgent(model_name=openai_model)
+critic_agent=CriticAgent(model_name=openai_model, llm_recorder=llm_recorder)
 curriculum_agent = CurriculumAgent(
     model_name=openai_model,
     core_inventory_items=r".*_log|.*_planks|stick|crafting_table|furnace"
