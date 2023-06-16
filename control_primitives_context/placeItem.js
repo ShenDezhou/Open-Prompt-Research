@@ -1,5 +1,6 @@
 // Place a crafting_table near the player, Vec3(1, 0, 0) is just an example, you shouldn't always use that: placeItem(bot, "crafting_table", bot.entity.position.offset(1, 0, 0));
 async function placeItem(bot, name, position) {
+    const mcData = mineData(bot.version);
     const item = bot.inventory.findInventoryItem(mcData.itemsByName[name].id);
     // find a reference block
     const faceVectors = [

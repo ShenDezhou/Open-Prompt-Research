@@ -1,5 +1,6 @@
 // Mine 3 cobblestone: mineBlock(bot, "stone", 3);
 async function mineBlock(bot, name, count = 1) {
+    const mcData = mineData(bot.version);
     const blocks = bot.findBlocks({
         matching: (block) => {
             return block.name === name;

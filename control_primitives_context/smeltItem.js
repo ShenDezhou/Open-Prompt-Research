@@ -1,6 +1,7 @@
 // Smelt 1 raw_iron into 1 iron_ingot using 1 oak_planks as fuel: smeltItem(bot, "raw_iron", "oak_planks");
 // You must place a furnace before calling this function
 async function smeltItem(bot, itemName, fuelName, count = 1) {
+    const mcData = mineData(bot.version);
     const item = mcData.itemsByName[itemName];
     const fuel = mcData.itemsByName[fuelName];
     const furnaceBlock = bot.findBlock({

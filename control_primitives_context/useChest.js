@@ -1,6 +1,7 @@
 // Get a torch from chest at (30, 65, 100): getItemFromChest(bot, new Vec3(30, 65, 100), {"torch": 1});
 // This function will work no matter how far the bot is from the chest.
 async function getItemFromChest(bot, chestPosition, itemsToGet) {
+    const mcData = mineData(bot.version);
     await moveToChest(bot, chestPosition);
     const chestBlock = bot.blockAt(chestPosition);
     const chest = await bot.openContainer(chestBlock);
