@@ -217,7 +217,7 @@ class CurriculumAgent:
             questions, answers = self.run_qa(
                 events=events, chest_observation=chest_observation
             )
-            self.llm_recorder([observation, questions, answers], "llm-question")
+            self.llm_recorder.record([observation, questions, answers], "llm-question")
             i = 1
             for question, answer in zip(questions, answers):
                 if "Answer: Unknown" in answer or "language model" in answer:
@@ -279,7 +279,7 @@ class CurriculumAgent:
     def propose_next_ai_task(self, *, messages, max_retries=5):
         curriculum = self.llm(messages).content
         print(f"\033[31m****Curriculum Agent ai message****\n{curriculum}\033[0m")
-        self.llm_recorder([*messages, curriculum], "llm-curri")
+        self.llm_recorder.record([messages[0].content, messages[1].content, curriculum], "llm-curri")
         try:
             response = self.parse_ai_message(curriculum)
             assert "next_task" in response
@@ -393,7 +393,7 @@ class CurriculumAgent:
             answer = self.qa_cache[question]
         else:
             answer = self.run_qa_step2_answer_questions(question=question)
-            self.llm_recorder([question, answer], "llm-answer")
+            self.llm_recorder.record([question, answer], "llm-answer")
             self.qa_cache[question] = answer
             self.qa_cache_questions_vectordb.add_texts(
                 texts=[question],
