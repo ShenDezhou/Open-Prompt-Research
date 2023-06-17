@@ -26,23 +26,26 @@ for name, value in options:
 print("USING:"+openai_model)
 recorder = U.EventRecorder()
 llm_recorder = U.EventRecorder()
+
+resume = True # if resume the skills
 # Agents BEGIN.
-action_agent=ActionAgent(model_name=openai_model)
+action_agent=ActionAgent(model_name=openai_model, resume=resume)
 critic_agent=CriticAgent(model_name=openai_model, llm_recorder=llm_recorder)
 curriculum_agent = CurriculumAgent(
     model_name=openai_model,
     core_inventory_items=r".*_log|.*_planks|stick|crafting_table|furnace"
         r"|cobblestone|dirt|coal|.*_pickaxe|.*_sword|.*_axe",
-    llm_recorder=llm_recorder
+    llm_recorder=llm_recorder,
+    resume=resume
 )
-skill_manager = SkillManager(model_name=openai_model, llm_recorder=llm_recorder)
+skill_manager = SkillManager(model_name=openai_model, llm_recorder=llm_recorder, resume=resume)
 env=VoyagerEnv(mc_port=25565)
 # Agents END.
 
 
 #CONSTANT
 env_wait_ticks=20
-resume = False
+
 max_iterations=1
 action_agent_task_max_retries=4
 reset_env=True
